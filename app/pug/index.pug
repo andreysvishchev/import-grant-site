@@ -1,0 +1,29 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "Главная"
+block content
+  .slider.swiper
+    .swiper-wrapper.slider__wrapper
+      each item in slider
+        .swiper-slide.slider__item(style=`background-image: url(${item.bg});`)
+          .container
+            h1.slider__title=item.title
+              //- span=item.titleTop
+              //- span=item.titleBot
+    .slider__pagination
+  .category
+    .container
+      h2.category__title.title Мы занимаемся поставками продуктов
+      ul.category__list
+        each item in category
+          .category__item
+            a.category__link(href=item.link)
+            img.category__img(src=item.img, alt="")
+            .category__name=item.name
+  .geography
+    .container
+      h2.geography__title География закупок
+      ul.geography__list
+      each item in geography
+        li.geography__item=item

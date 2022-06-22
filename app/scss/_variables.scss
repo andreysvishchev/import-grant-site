@@ -1,0 +1,23 @@
+// размеры шрифтов
+$size_big: 32px;
+$size_main: 16px;
+$size_small: 14px;
+
+// Цвет текста
+$dark-green:#0D9A37;
+$light-green: #60B31B;
+$black: #333333;
+$white: #fff;
+$orange: #FFC900;
+
+%roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+%montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+%lobster {
+  font-family: 'Lobster', sans-serif;
+}

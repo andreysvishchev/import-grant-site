@@ -1,0 +1,23 @@
+footer.footer
+  .container
+    .footer__row
+      .footer__descr
+        a.footer__logo(href="#")
+          img(src="images/footer-logo.svg" alt="Импорт Грант")
+        .footer__row
+          .footer__contacts
+          ul.footer__menu
+          each item in menu
+            li.footer__item
+              a.footer__link(href=item.link)=item.title
+      form.form
+        .form__row
+          input.form__input(placeholder='Имя')
+          input.form__input(placeholder='E-mail')
+          input.form__input(placeholder='Телефон')
+        textarea.form__textarea(placeholder='Ваше сообщение')
+        .form__row
+          button.form__btn отправить
+          .form__agreement Отправляя сообщение, вы соглашаетесь на обработку персональных данных
+    .footer__copyright-block
+      .footer__copyright © 2022 ООО «Импорт-Гарант». Все права защищены.

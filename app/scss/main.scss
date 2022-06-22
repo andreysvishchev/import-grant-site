@@ -1,0 +1,351 @@
+@import "_variables";
+@import "_mixins";
+@import "_keyframes";
+@import "_fonts";
+
+// @import "../../node_modules/swiper/swiper.min.css"; // Slider: npm install swiper, site: https://swiperjs.com/get-started
+// @import "../../node_modules/air-datepicker/air-datepicker.css"; // Datepicker: npm i air-datepicker -S, site: https://air-datepicker.com/ru
+
+html {
+  --vh: 1vh;
+}
+
+html,
+body {
+  @extend %montserrat;
+  font-style: normal;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  text-size-adjust: none;
+  color: $black;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  border: none;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &:focus,
+  &:active {
+    outline: 0px solid transparent;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input.error,
+textarea.error {
+  border-color: red;
+}
+
+.workemail {
+  display: none;
+}
+
+.container {
+  max-width: 1630px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+[data-style='sb-center'] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.wrapper {
+  min-height: calc(var(--vh) * 100);
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.header {
+  flex-shrink: 0;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+}
+
+.title {
+  font-size: 48px;
+  line-height: 120%;
+  color: $black;
+  @extend %lobster;
+}
+
+
+.header {
+  margin-bottom: 20px;
+
+  &__top {
+    padding: 20px 0;
+    color: $white;
+    background-color: $dark-green;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &__caption {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    position: relative;
+    padding-left: 45px;
+    margin-right: 30px;
+    font-weight: 600;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include bg;
+    }
+  }
+
+  [data-style='mail'] {
+    &::before {
+      width: 22px;
+      height: 18px;
+      background-image: url('../images/mail.svg')
+    }
+  }
+
+  [data-style='tel'] {
+    &::before {
+      width: 19px;
+      height: 19px;
+      background-image: url('../images/tel.svg')
+    }
+  }
+
+  &__btn {
+    @include reset-button;
+    padding: 8px 25px;
+    background-color: $orange;
+    border-radius: 33px;
+    font-weight: 600;
+  }
+
+  &__menu {
+    margin-top: 20px;
+  }
+}
+
+.menu {
+  color: $black;
+  font-weight: 600;
+  font-size: 18px;
+
+  &__list {
+    @include reset-list;
+    display: flex;
+  }
+
+  &__item+.menu__item {
+    margin-left: 55px;
+    position: relative;
+  }
+
+  &__sublist {
+    @include reset-list;
+    position: absolute;
+    left: -45px;
+    padding: 10px 0;
+    top: 40px;
+    display: none;
+    transition: all .2s ease-in-out;
+    background-color: $white;
+    z-index: 100;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px #adb1ae;
+
+    &.open {
+      display: block;
+    }
+  }
+
+  &__subitem {
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color .2s ease-in-out;
+
+    &:hover {
+      background-color: $orange;
+    }
+
+    a {
+      display: block;
+      padding: 5px 15px;
+    }
+  }
+
+  [data-menu='subitem'] {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      right: -23px;
+      width: 15px;
+      height: 9px;
+      background-image: url('../images/arrow-down.svg');
+      @include bg;
+      transition: transform .2s ease-in-out
+    }
+
+    &.open {
+      &::before {
+        transform: rotate(180deg)
+      }
+    }
+  }
+}
+
+.slider {
+  &__item {
+    height: 430px;
+    @include bg;
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    padding: 10px 10px 10px 5px;
+    @extend %lobster;
+    color: transparent;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 110%;
+    max-width: 630px;
+    background-clip: text;
+    background-image: linear-gradient(to bottom, $dark-green, $light-green);
+  }
+
+  &__pagination {
+    width: min-content;
+    display: flex;
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    span {
+      display: block;
+      width: 14px;
+      height: 14px;
+      background-color: $white;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-right: 20px;
+      opacity: 0.4;
+      transition: opacity .2s ease-in-out;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.category {
+  &__title {
+    text-align: center;
+    margin-bottom: 45px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  &__item {
+    height: 360px;
+    width: 380px;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    padding: 50px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ПОДКЛЮЧЕНИЕ СТИЛЕЙ АДАПТИВА */
+@import "_response";
+/* НИЖЕ СТЕЛЕЙ НЕ ДОЛЖНО БЫТЬ!!! */
