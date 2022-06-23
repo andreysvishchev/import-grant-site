@@ -1,0 +1,10 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "О компании"
+block content
+  include blocks/aside
+  .inner
+    include blocks/crumbs
+    -var about = false
+    include blocks/about

@@ -1,9 +1,13 @@
 ul.menu__list
   each item, index in menu
-    li(class=item.title==pageTitle?"active menu__item":"menu__item")(data-menu=index==1? 'subitem': null)
-      a(href=item.link)=item.title
+    li(class=item.title==pageTitle?"active menu__item":"menu__item")(data-menu=index==1? 'sub-item': null)
       if item.submenu
-        ul.menu__sublist(data-menu='submenu')
+        a(href=item.link)=item.title
+        button.sub-btn(data-menu='sub-btn')
+      else
+        a(href=item.link)=item.title
+      if item.submenu
+        ul.menu__sublist(data-menu='sub-menu')
           each subitem, index in item.submenu
             li.menu__subitem
               a(href=item.link)=subitem.title

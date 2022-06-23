@@ -2,13 +2,19 @@
 // import Swiper from 'swiper'; // Slider: npm install swiper, site: https://swiperjs.com/get-started
 // import AirDatepicker from 'air-datepicker'; // Datepicker: npm i air-datepicker -S, site: https://air-datepicker.com/ru
 
-import Swiper, {
-  Pagination
-} from 'swiper';
+// import Swiper, {
+//   Navigation,
+//   Pagination
+// } from 'swiper';
 
 
 const swiper = new Swiper('.slider', {
-  modules: [Pagination],
+  speed: 600,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  // modules: [Navigation, Pagination],
   pagination: {
     el: ".slider__pagination",
     clickable: true,
@@ -16,15 +22,18 @@ const swiper = new Swiper('.slider', {
 });
 
 
-const subitem = document.querySelector(`[data-menu='subitem']`)
-const submenu = document.querySelector(`[data-menu='submenu']`)
+const subBtn = document.querySelector(`[data-menu='sub-btn']`)
+const submenu = document.querySelector(`[data-menu='sub-menu']`)
 
-subitem.addEventListener('mouseover', (e) => {
-  submenu.classList.add('open')
-  e.currentTarget.classList.add('open')
+subBtn.addEventListener('click', () => {
+  subBtn.classList.toggle('open')
+  submenu.classList.toggle('open')
 })
 
-subitem.addEventListener('mouseout', (e) => {
-  submenu.classList.remove('open')
-  e.currentTarget.classList.remove('open')
+const burger = document.querySelector('.burger')
+const menu = document.querySelector('.menu')
+
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open')
+  menu.classList.toggle('open')
 })

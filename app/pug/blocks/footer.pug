@@ -1,23 +1,28 @@
 footer.footer
-  .container
-    .footer__row
-      .footer__descr
-        a.footer__logo(href="#")
-          img(src="images/footer-logo.svg" alt="Импорт Грант")
-        .footer__row
-          .footer__contacts
+  .footer__top
+    .container
+      .footer__row
+        .footer__descr
+          .footer__col
+            a.footer__logo(href="#")
+              img(src="images/footer-logo.svg" alt="Импорт Грант")
+            .footer__contacts
+              .footer__address(data-style='address') Н. Новгород, ул. Ефремова, д. 3, помещ. П5
+              a.footer__address(href='tel:88002013105' data-style='tel') 8 (800) 201 31 05
+              a.footer__address(href='mailto:info@import-garant.com' data-style='mail') info@import-garant.com
           ul.footer__menu
-          each item in menu
-            li.footer__item
-              a.footer__link(href=item.link)=item.title
-      form.form
-        .form__row
-          input.form__input(placeholder='Имя')
-          input.form__input(placeholder='E-mail')
-          input.form__input(placeholder='Телефон')
-        textarea.form__textarea(placeholder='Ваше сообщение')
-        .form__row
-          button.form__btn отправить
-          .form__agreement Отправляя сообщение, вы соглашаетесь на обработку персональных данных
-    .footer__copyright-block
-      .footer__copyright © 2022 ООО «Импорт-Гарант». Все права защищены.
+            each item in menu
+              li.footer__item
+                a.footer__link(href=item.link)=item.title
+        form.form
+          div.form__title Обратная связь
+          .form__row
+            input.form__input(placeholder='Имя')
+            input.form__input(placeholder='E-mail')
+            input.form__input(placeholder='Телефон')
+          textarea.form__textarea(placeholder='Ваше сообщение')
+          .form__agreement
+            button.form__btn отправить
+            .form__text Отправляя сообщение, вы соглашаетесь на обработку персональных данных
+  .footer__copyright-block
+    .footer__copyright © 2022 ООО «Импорт-Гарант». Все права защищены.

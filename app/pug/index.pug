@@ -9,8 +9,6 @@ block content
         .swiper-slide.slider__item(style=`background-image: url(${item.bg});`)
           .container
             h1.slider__title=item.title
-              //- span=item.titleTop
-              //- span=item.titleBot
     .slider__pagination
   .category
     .container
@@ -22,8 +20,11 @@ block content
             img.category__img(src=item.img, alt="")
             .category__name=item.name
   .geography
+    img.geography__inner(src='images/map.png')
     .container
       h2.geography__title География закупок
       ul.geography__list
-      each item in geography
-        li.geography__item=item
+        each item in geography
+          li.geography__item=item
+  -var about = true
+  include blocks/about.pug
