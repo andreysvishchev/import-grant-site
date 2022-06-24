@@ -1,0 +1,22 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "Мясная продукция"
+block content
+  include blocks/aside
+  .inner
+    include blocks/crumbs
+    .category
+      .container
+        .category__top
+          .category__caption.title=pageTitle
+          include blocks/pagination
+        .table
+          .table__captions
+            .table__caption Наименование
+            .table__caption Срок годности
+            .table__caption Вес коробки
+          .table__row
+            .table__col "Березинская по-Волковысски классик" (газ)
+            .table__col 25/6 суток
+            .table__col 7,5-8

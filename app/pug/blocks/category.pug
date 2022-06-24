@@ -1,9 +1,9 @@
-.category
+.category(class=page?'page':null)
   .container
     h2.category__title.title Мы занимаемся поставками продуктов
     ul.category__list
       each item in category
         .category__item
           a.category__link(href=item.link)
-          img.category__img(src=item.img, alt="")
+          img.category__img(src=item.img, alt="Категория товара")
           .category__name=item.name
