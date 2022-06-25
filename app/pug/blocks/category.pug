@@ -5,5 +5,6 @@
       each item in category
         .category__item
           a.category__link(href=item.link)
-          img.category__img(src=item.img, alt="Категория товара")
-          .category__name=item.name
+          a(href=item.link)
+            img.category__img(src=item.img, alt="Категория товара")
+            .category__name=item.name

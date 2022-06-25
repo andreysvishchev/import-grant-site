@@ -89,10 +89,24 @@
   }
 
   .category {
+    padding: 0 0 100px 0;
+
     &.page {
       .category__list {
         grid-template-columns: repeat(2, 1fr);
       }
+    }
+  }
+
+  .table {
+    font-size: 14px;
+
+    &__captions {
+      padding: 10px;
+    }
+
+    &__row {
+      padding: 10px;
     }
   }
 }
@@ -136,6 +150,10 @@
       padding: 20px;
 
     }
+  }
+
+  [data-table=meet-table] {
+    grid-template-columns: 1fr 80px 65px;
   }
 }
 

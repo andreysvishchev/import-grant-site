@@ -5,18 +5,23 @@ block variables
 block content
   include blocks/aside
   .inner
+    -var pageCatalog = false
     include blocks/crumbs
     .category
       .container
-        .category__top
-          .category__caption.title=pageTitle
-          include blocks/pagination
+        .category__caption.title=pageTitle
+        //- .category__logo
+        //-   img.category__logo-img(src="images/category-logo-meet.png" alt=pageTitle)
+        //-   .category__logo-name ОАО «Волковысский мясокомбинат»
         .table
-          .table__captions
-            .table__caption Наименование
+          .table__captions(data-table='meet-table')
+            .table__caption Наименование продукции
             .table__caption Срок годности
             .table__caption Вес коробки
-          .table__row
-            .table__col "Березинская по-Волковысски классик" (газ)
-            .table__col 25/6 суток
-            .table__col 7,5-8
+          +meet-group(catalog.meet.group_1)
+          +meet-group(catalog.meet.group_2)
+          +meet-group(catalog.meet.group_3)
+          +meet-group(catalog.meet.group_4)
+          +meet-group(catalog.meet.group_5)
+          +meet-group(catalog.meet.group_6)
+        include blocks/pagination

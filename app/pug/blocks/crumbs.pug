@@ -1,5 +1,8 @@
 div.crumbs
   ul.crumbs__list
     li.crumbs__item
-      a(href="/") Главная
+      a(href="index.html") Главная
+    if !pageCatalog
+      li.crumbs__item
+        a(href="catalog.html") Каталог
     li.crumbs__item #{pageTitle}

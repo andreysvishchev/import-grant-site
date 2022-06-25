@@ -1,0 +1,12 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "Продукция в заморозке"
+block content
+  include blocks/aside
+  .inner
+    include blocks/crumbs
+    .category
+      .container
+        .category__top
+          .category__caption.title=pageTitle

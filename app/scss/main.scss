@@ -395,14 +395,26 @@ textarea.error {
     margin: 65px 0 45px 0;
   }
 
-  &__top {
-    margin: 67px 0 45px;
-    display: flex;
-    justify-content: space-between;
+  &__caption {
+    margin: 67px 0 40px;
   }
 
-  &__caption {
+  &__logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  &__logo-img {
+    width: 100px;
+    height: 70px;
     margin-right: 30px;
+  }
+
+  &__logo-name {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
   }
 
   &__list {
@@ -1075,10 +1087,12 @@ textarea.error {
 }
 
 .table {
+  margin-bottom: 40px;
+
+
   &__captions {
     display: grid;
-    grid-template-columns: 1fr 250px 120px;
-    gap: 0 40px;
+    gap: 0 20px;
     background-color: $light-green;
     padding: 25px;
     vertical-align: middle;
@@ -1091,20 +1105,40 @@ textarea.error {
 
   &__row {
     display: grid;
-    grid-template-columns: 1fr 250px 120px;
     padding: 25px;
-    gap: 0 40px;
-
+    gap: 0 20px;
     font-weight: 500;
-
-    &:nth-child(even) {
-      background: #F2F0EB;
-    }
-
-    &:nth-child(odd) {
-      background-color: $white;
-    }
   }
+}
+
+[data-style='group-item'] {
+  &:nth-child(even) {
+    background: #F2F0EB;
+  }
+
+  &:nth-child(odd) {
+    background-color: $white;
+  }
+}
+
+[data-style='group-name'] {
+  background-color: $orange;
+}
+
+[data-table='meet-table'] {
+  grid-template-columns: 1fr 150px 120px;
+}
+
+[data-table='milk-table'] {
+  grid-template-columns: 1fr 120px;
+}
+
+[data-table='drinks-table'] {
+  grid-template-columns: 1fr 150px 150px;
+}
+
+[data-table='feed-table'] {
+  grid-template-columns: 1fr 120px;
 }
 
 

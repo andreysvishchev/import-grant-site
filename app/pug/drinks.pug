@@ -1,0 +1,21 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "Напитки"
+block content
+  include blocks/aside
+  .inner
+    include blocks/crumbs
+    .category
+      .container
+        .category__top
+          .category__caption.title=pageTitle
+
+        .table
+          .table__captions(data-table='drinks-table')
+            .table__caption Наименование
+            .table__caption Срок годности
+            .table__caption Кол -во шт. в уп.
+          +drinks-group(catalog.drinks.group_1)
+          +drinks-group(catalog.drinks.group_2)
+        include blocks/pagination

@@ -1,0 +1,19 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "Корм для животных"
+block content
+  include blocks/aside
+  .inner
+    include blocks/crumbs
+    .category
+      .container
+        .category__top
+          .category__caption.title=pageTitle
+        .table
+          .table__captions(data-table='feed-table')
+            .table__caption Наименование
+            .table__caption Фасовка, кг
+          +feed-group
+
+        include blocks/pagination

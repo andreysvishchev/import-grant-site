@@ -1,0 +1,20 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "Молочная продукция"
+block content
+  include blocks/aside
+  .inner
+    include blocks/crumbs
+    .category
+      .container
+        .category__caption.title=pageTitle
+        //- .category__logo
+        //-   img.category__logo-img(src="images/category-logo-milk.png" alt=pageTitle)
+        //-   .category__logo-name ОАО «Волковысский мясокомбинат»
+        .table
+          .table__captions(data-table='milk-table')
+            .table__caption Наименование
+            .table__caption Вес
+          +milk-group
+        include blocks/pagination
