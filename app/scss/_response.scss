@@ -109,6 +109,15 @@
       padding: 10px;
     }
   }
+
+  [data-table=kids-table] {
+    grid-template-columns: 1fr 80px 70px 70px;
+  }
+
+  [data-table=feed-table] {
+    -ms-grid-columns: 1fr 120px;
+    grid-template-columns: 1fr 80px;
+  }
 }
 
 @media screen and (max-width: 1023px) {
@@ -154,6 +163,11 @@
 
   [data-table=meet-table] {
     grid-template-columns: 1fr 80px 65px;
+  }
+
+  [data-table=drinks-table] {
+    -ms-grid-columns: 1fr 150px 150px;
+    grid-template-columns: 1fr 70px 70px;
   }
 }
 
@@ -416,6 +430,10 @@
     &__list {
       grid-template-columns: repeat(1, 1fr);
     }
+
+    &__caption {
+      margin: 30px 0;
+    }
   }
 
   .title {
@@ -483,7 +501,31 @@
 
   .crumbs {
     padding: 24px 15px;
+
+    &__item {
+      font-size: 12px;
+      margin: 0 10px;
+    }
   }
+
+  .table {
+    font-size: 12px;
+
+    &__captions {
+      padding: 10px 5px;
+      gap: 0 10px;
+    }
+
+    &__row {
+      padding: 10px 5px;
+      gap: 0 10px;
+
+    }
+  }
+}
+
+[data-table='milk-table'] {
+  grid-template-columns: 1fr 80px;
 }
 
 

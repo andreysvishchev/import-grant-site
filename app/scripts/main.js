@@ -2,10 +2,9 @@
 // import Swiper from 'swiper'; // Slider: npm install swiper, site: https://swiperjs.com/get-started
 // import AirDatepicker from 'air-datepicker'; // Datepicker: npm i air-datepicker -S, site: https://air-datepicker.com/ru
 
-// import Swiper, {
-//   Navigation,
-//   Pagination
-// } from 'swiper';
+import Swiper, {
+  Pagination
+} from 'swiper';
 
 
 const swiper = new Swiper('.slider', {
@@ -14,7 +13,7 @@ const swiper = new Swiper('.slider', {
     delay: 2500,
     disableOnInteraction: false,
   },
-  // modules: [Navigation, Pagination],
+  modules: [Pagination],
   pagination: {
     el: ".slider__pagination",
     clickable: true,
@@ -37,3 +36,7 @@ burger.addEventListener('click', () => {
   burger.classList.toggle('open')
   menu.classList.toggle('open')
 })
+
+let table = document.querySelector('.table');
+let pagination = document.querySelector('.nav-page__list');
+let row = document.querySelectorAll('.table__row')

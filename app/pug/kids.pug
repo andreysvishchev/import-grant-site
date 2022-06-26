@@ -10,3 +10,17 @@ block content
       .container
         .category__top
           .category__caption.title=pageTitle
+        .table
+          .table__captions(data-table='kids-table')
+            .table__caption Наименование
+            .table__caption  Срок прикорма, месяцев
+            .table__caption  Срок годности
+            .table__caption Кол.-во шт. в уп 
+          +kids-group(catalog.kids.group_1)
+          +kids-group(catalog.kids.group_2)
+          +kids-group(catalog.kids.group_3)
+          +kids-group(catalog.kids.group_4)
+          +kids-group(catalog.kids.group_5)
+          +kids-group(catalog.kids.group_6)
+
+        include blocks/pagination

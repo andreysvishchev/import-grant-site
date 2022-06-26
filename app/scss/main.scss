@@ -1141,6 +1141,10 @@ textarea.error {
   grid-template-columns: 1fr 120px;
 }
 
+[data-table='kids-table'] {
+  grid-template-columns: 1fr 150px 140px 140px;
+}
+
 
 
 .nav-page {
