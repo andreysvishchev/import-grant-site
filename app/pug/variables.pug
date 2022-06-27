@@ -131,6 +131,7 @@
     'meet': {
       'group_1': {
         'caption':'ВАРЕНЫЕ КОЛБАСНЫЕ ИЗДЕЛИЯ',
+        'id': 'group1',
         'list': [
           {
             'name':'"Березинская по-Волковысски классик" (газ)',
@@ -226,6 +227,7 @@
       },
       'group_2': {
         'caption':'CОСИСКИ, CАРДЕЛЬКИ (газ по 2,5 кг)',
+        'id': 'group2',
         'list': [
           {
             'name':'Сард. "Купеческие по-Волковысски классик", б/с (газ)',
@@ -291,6 +293,7 @@
       },
       'group_3': {
         'caption':'КОЛБАСНЫЕ ИЗДЕЛИЯ П/К (газ)',
+        'id': 'group3',
         'list': [
           {
             'name':'Колбаски "Для гриля микс" 2 с (газ)',
@@ -336,6 +339,7 @@
       },
       'group_4': {
         'caption':'КОЛБАСНЫЕ  ИЗДЕЛИЯ  В/К (газ)',
+        'id': 'group4',
         'list': [
           {
             'name':'"Барбадос по-Волковысски" в/с (газ)',
@@ -401,6 +405,7 @@
       },
       'group_5': {
         'caption':'ПРОДУКТЫ К/В, К/З, С/К',
+        'id': 'group5',
         'list': [
           {
             'name':'Бекон "Аппетитный классик" к/з (газ)',
@@ -516,6 +521,7 @@
       },
       'group_6': {
         'caption':'ПЕЛЬМЕНИ',
+        'id': 'group6',
         'list': [
           {
             'name':' «Элитные» кат.Б 0,40 кг',
@@ -953,6 +959,7 @@
     'drinks': {
       'group_1': {
         'caption': 'Консервы стерилизованные. Стеклобутылка 1 л.',
+        'id': 'group1',
         'list': [
           {
             'name':'Сок березовый с сахаром',
@@ -1033,6 +1040,7 @@
       },
       'group_2': {
         'caption':'Консервы стерилизованные 500 гр.',
+        'id': 'group2',
         'list': [
           {
             'name':'Соус томатный "Классический" 500 гр',
@@ -1116,6 +1124,7 @@
     'kids': {
       'group_1': {
         'caption':'Детское питание (пакеты типа "ПАУЧ") масса 90г.',
+        'id': 'group1',
         'list': [
           {
             'name':'Пюре из яблок',
@@ -1199,6 +1208,7 @@
       },
       'group_2': {
         'caption':'Детское питание   без   сахара.  ПТ - 100г. ',
+        'id': 'group2',
         'list': [
           {
             'name':'Пюре из яблок',
@@ -1228,6 +1238,7 @@
       },
       'group_3': {
         'caption':' Детское питание. Стеклобутылочка ТО – 250 мл',
+        'id': 'group3',
         'list': [
           {
             'name':'Сок яблочный прямого отжима',
@@ -1269,6 +1280,7 @@
       },
       'group_4': {
         'caption':' Детское питание.  Нектары с сахаром.   ТО -185мл',
+        'id': 'group4',
         'list': [
           {
             'name':'Нектар из яблочно-банановый с мякотью',
@@ -1293,6 +1305,7 @@
       },
       'group_5': {
         'caption':' Детское питание. Пюре без сахара. ТО-190г',
+        'id': 'group5',
         'list': [
           {
             'name':'Пюре из яблок',
@@ -1371,6 +1384,7 @@
       },
       'group_6': {
         'caption':' Пюре с добавлением сахара, сливок, творога! ТО - 190г',
+        'id': 'group6',
         'list': [
           {
             'name':'Пюре яблочное с сахаром',
@@ -1463,36 +1477,38 @@
   };
 
 
-
 mixin meet-group(name)
-  .table__row(data-style='group-name')=name.caption
+  tr(data-style='group-name')
+    td(colspan="3" id=name.id)=name.caption
   each item in name.list
-    .table__row(data-style='group-item' data-table='meet-table')
-      .table__col=item.name
-      .table__col=item.term
-      .table__col=item.weight
+    tr(data-style='group-item')
+      td.table__name=item.name
+      td.table__term=item.term
+      td.table__weight=item.weight
 mixin milk-group
   each item in catalog.milk
-    .table__row(data-style='group-item' data-table='milk-table')
-      .table__col=item.name
-      .table__col=item.weight
+    tr(data-style='group-item')
+      td.table__name=item.name
+      td.table__weight=item.weight
 mixin drinks-group(name)
-  .table__row(data-style='group-name')=name.caption
+  tr(data-style='group-name')
+    td(colspan='3' id=name.id)=name.caption
   each item in name.list
-    .table__row(data-style='group-item' data-table='drinks-table')
-      .table__col=item.name
-      .table__col=item.term
-      .table__col=item.amount
+    tr(data-style='group-item' )
+      td.table__name=item.name
+      td.table__term=item.term
+      td.table__amount=item.amount
 mixin feed-group
   each item in catalog.feed
-    .table__row(data-style='group-item' data-table='feed-table')
-      .table__col=item.name
-      .table__col=item.weight
+    tr(data-style='group-item')
+      td.table__name=item.name
+      td.table__weight=item.weight
 mixin kids-group(name)
-  .table__row(data-style='group-name')=name.caption
+  tr(data-style='group-name')
+    td(colspan="4" id=name.id)=name.caption
   each item in name.list
-    .table__row(data-style='group-item' data-table='kids-table')
-      .table__col=item.name
-      .table__col=item.age
-      .table__col=item.term
-      .table__col=item.amount
+    tr(data-style='group-item')
+      td.table__name=item.name
+      td.table__age=item.age
+      td.table__term=item.term
+      td.table__amount=item.amount

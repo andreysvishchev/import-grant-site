@@ -5,7 +5,7 @@ aside.aside
     .aside__caption Каталог товаров
   ul.aside__list
     each item in category
-      li.aside__item
+      li.aside__item(class=item.name==pageTitle?"active aside__item":null)
         a.aside__link(href=item.link)
           .aside__icon(data-style=item.icon)
           .aside__name=item.name

@@ -10,12 +10,15 @@ block content
       .container
         .category__top
           .category__caption.title=pageTitle
+        .category__anchors
+          a.category__anchor(href=`#${catalog.drinks.group_1.id}`)=catalog.drinks.group_1.caption
+          a.category__anchor(href=`#${catalog.drinks.group_2.id}`)=catalog.drinks.group_2.caption
 
-        .table
-          .table__captions(data-table='drinks-table')
-            .table__caption Наименование
-            .table__caption Срок годности
-            .table__caption Кол -во шт. в уп.
-          +drinks-group(catalog.drinks.group_1)
-          +drinks-group(catalog.drinks.group_2)
-        include blocks/pagination
+        .table-scroll
+          table.table
+            tr.table__caption
+              td.table__name Наименование продукции
+              td.table__term Срок годности
+              td.table__amount Кол -во шт. в уп.
+            +drinks-group(catalog.drinks.group_1)
+            +drinks-group(catalog.drinks.group_2)

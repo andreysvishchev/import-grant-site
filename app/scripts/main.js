@@ -3,9 +3,11 @@
 // import AirDatepicker from 'air-datepicker'; // Datepicker: npm i air-datepicker -S, site: https://air-datepicker.com/ru
 
 import Swiper, {
-  Pagination
+  Pagination,
+  Autoplay
 } from 'swiper';
 
+const modal = new GraphModal();
 
 const swiper = new Swiper('.slider', {
   speed: 600,
@@ -13,7 +15,7 @@ const swiper = new Swiper('.slider', {
     delay: 2500,
     disableOnInteraction: false,
   },
-  modules: [Pagination],
+  modules: [Pagination, Autoplay],
   pagination: {
     el: ".slider__pagination",
     clickable: true,
@@ -37,6 +39,8 @@ burger.addEventListener('click', () => {
   menu.classList.toggle('open')
 })
 
-let table = document.querySelector('.table');
-let pagination = document.querySelector('.nav-page__list');
-let row = document.querySelectorAll('.table__row')
+const workemailList = document.querySelectorAll('.workemail');
+workemailList.forEach((item) => {
+  item.value = '';
+  item.removeAttribute('required');
+});

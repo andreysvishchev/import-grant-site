@@ -10,18 +10,22 @@ block content
     .category
       .container
         .category__caption.title=pageTitle
-        //- .category__logo
-        //-   img.category__logo-img(src="images/category-logo-meet.png" alt=pageTitle)
-        //-   .category__logo-name ОАО «Волковысский мясокомбинат»
-        .table
-          .table__captions(data-table='meet-table')
-            .table__caption Наименование
-            .table__caption Срок годности
-            .table__caption Вес коробки
-          +meet-group(catalog.meet.group_1)
-          +meet-group(catalog.meet.group_2)
-          +meet-group(catalog.meet.group_3)
-          +meet-group(catalog.meet.group_4)
-          +meet-group(catalog.meet.group_5)
-          +meet-group(catalog.meet.group_6)
-        include blocks/pagination
+        .category__anchors
+          a.category__anchor(href=`#${catalog.meet.group_1.id}`)=catalog.meet.group_1.caption
+          a.category__anchor(href=`#${catalog.meet.group_2.id}`)=catalog.meet.group_2.caption
+          a.category__anchor(href=`#${catalog.meet.group_3.id}`)=catalog.meet.group_3.caption
+          a.category__anchor(href=`#${catalog.meet.group_4.id}`)=catalog.meet.group_4.caption
+          a.category__anchor(href=`#${catalog.meet.group_5.id}`)=catalog.meet.group_5.caption
+          a.category__anchor(href=`#${catalog.meet.group_6.id}`)=catalog.meet.group_6.caption
+        .table-scroll
+          table.table
+            tr.table__caption
+              td.table__name Наименование продукции
+              td.table__term Срок годности в упаковке / после вскрытия
+              td.table__weight Вес коробки
+            +meet-group(catalog.meet.group_1)
+            +meet-group(catalog.meet.group_2)
+            +meet-group(catalog.meet.group_3)
+            +meet-group(catalog.meet.group_4)
+            +meet-group(catalog.meet.group_5)
+            +meet-group(catalog.meet.group_6)

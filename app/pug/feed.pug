@@ -10,10 +10,9 @@ block content
       .container
         .category__top
           .category__caption.title=pageTitle
-        .table
-          .table__captions(data-table='feed-table')
-            .table__caption Наименование
-            .table__caption Фасовка, кг
-          +feed-group
-
-        include blocks/pagination
+        .table-scroll
+          table.table
+            tr.table__caption
+              td.table__name Наименование продукции
+              td.table__weight Фасовка, кг
+            +feed-group

@@ -10,7 +10,7 @@
 
 @media screen and (max-width: 1500px) {
   .aside {
-    max-width: 380px;
+    max-width: 370px;
 
     &__top {
       padding: 18px 0 18px 30px;
@@ -21,46 +21,33 @@
     }
   }
 
-  .about {
-    &.page {
-      .about__inner {
-        flex-direction: column;
-      }
-
-      .about__descr {
-        width: 100%;
-        margin: 0 0 30px 0;
-      }
-    }
-  }
-
-  .delivery {
+  .page {
     &__inner {
       flex-direction: column;
     }
 
     &__descr {
       width: 100%;
-      margin: 0 0 30px 0;
-    }
-  }
-
-  .contacts {
-    &__inner {
-      flex-direction: column;
     }
 
-    &__descr {
-      width: 100%;
-      margin: 0 0 30px 0;
+    &__img {
+      margin: 30px 0 0 0;
     }
   }
 }
 
 @media screen and (max-width: 1240px) {
   .category {
+    padding: 0 0 100px 0;
+
     &__list {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    &.page {
+      .category__list {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
 
@@ -86,37 +73,6 @@
   .form {
     max-width: 740px;
     margin: 0 auto;
-  }
-
-  .category {
-    padding: 0 0 100px 0;
-
-    &.page {
-      .category__list {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  }
-
-  .table {
-    font-size: 14px;
-
-    &__captions {
-      padding: 10px;
-    }
-
-    &__row {
-      padding: 10px;
-    }
-  }
-
-  [data-table=kids-table] {
-    grid-template-columns: 1fr 80px 70px 70px;
-  }
-
-  [data-table=feed-table] {
-    -ms-grid-columns: 1fr 120px;
-    grid-template-columns: 1fr 80px;
   }
 }
 
@@ -160,15 +116,6 @@
 
     }
   }
-
-  [data-table=meet-table] {
-    grid-template-columns: 1fr 80px 65px;
-  }
-
-  [data-table=drinks-table] {
-    -ms-grid-columns: 1fr 150px 150px;
-    grid-template-columns: 1fr 70px 70px;
-  }
 }
 
 @media screen and (max-width: 900px) {
@@ -204,6 +151,7 @@
 
     &__item {
       margin-bottom: 10px;
+      padding: 5px 10px;
 
       &.active {
         color: $dark-green;
@@ -217,12 +165,14 @@
     &__sublist {
       position: static;
       box-shadow: none;
+      padding: 10px 0 0 0;
     }
   }
 
   .burger {
     z-index: 20;
     @include reset-button;
+
     width: 40px;
     display: block;
 
@@ -273,35 +223,11 @@
     font-size: 40px;
   }
 
-  .about {
-    padding: 50px 0;
-
-    &__descr {
-      width: 100%;
-      margin: 0 0 30px 0;
-    }
-
-    &__img {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-
-    &__inner {
-      flex-direction: column;
-    }
-  }
-
   .aside {
     display: none;
   }
 
-  .delivery {
-    padding: 50px 0;
-  }
-
-  .contacts {
+  .page {
     padding: 50px 0;
   }
 }
@@ -458,7 +384,7 @@
     }
   }
 
-  .about {
+  .page {
     &__text {
 
       margin: 0 0 30px 0;
@@ -508,25 +434,23 @@
     }
   }
 
+  [data-style='group-item'] {
+    font-size: 14px;
+
+  }
+
+  [data-style='group-name'] {
+    font-size: 14px;
+  }
+
   .table {
-    font-size: 12px;
-
-    &__captions {
-      padding: 10px 5px;
-      gap: 0 10px;
-    }
-
-    &__row {
-      padding: 10px 5px;
-      gap: 0 10px;
-
+    &__name {
+      min-width: 300px;
     }
   }
 }
 
-[data-table='milk-table'] {
-  grid-template-columns: 1fr 80px;
-}
+
 
 
 @media screen and (max-width: 479px) {}

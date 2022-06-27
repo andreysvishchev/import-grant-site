@@ -9,12 +9,10 @@ block content
     .category
       .container
         .category__caption.title=pageTitle
-        //- .category__logo
-        //-   img.category__logo-img(src="images/category-logo-milk.png" alt=pageTitle)
-        //-   .category__logo-name ОАО «Волковысский мясокомбинат»
-        .table
-          .table__captions(data-table='milk-table')
-            .table__caption Наименование
-            .table__caption Вес
-          +milk-group
-        include blocks/pagination
+        .table-scroll
+          table.table
+            tbody
+              tr.table__caption
+                td.table__name Наименование продукции
+                td.table__weight Ед. измерения
+              +milk-group

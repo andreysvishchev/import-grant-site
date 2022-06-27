@@ -10,17 +10,23 @@ block content
       .container
         .category__top
           .category__caption.title=pageTitle
-        .table
-          .table__captions(data-table='kids-table')
-            .table__caption Наименование
-            .table__caption  Срок прикорма, месяцев
-            .table__caption  Срок годности
-            .table__caption Кол.-во шт. в уп 
-          +kids-group(catalog.kids.group_1)
-          +kids-group(catalog.kids.group_2)
-          +kids-group(catalog.kids.group_3)
-          +kids-group(catalog.kids.group_4)
-          +kids-group(catalog.kids.group_5)
-          +kids-group(catalog.kids.group_6)
-
-        include blocks/pagination
+        .category__anchors
+          a.category__anchor(href=`#${catalog.kids.group_1.id}`)=catalog.kids.group_1.caption
+          a.category__anchor(href=`#${catalog.kids.group_2.id}`)=catalog.kids.group_2.caption
+          a.category__anchor(href=`#${catalog.kids.group_3.id}`)=catalog.kids.group_3.caption
+          a.category__anchor(href=`#${catalog.kids.group_4.id}`)=catalog.kids.group_4.caption
+          a.category__anchor(href=`#${catalog.kids.group_5.id}`)=catalog.kids.group_5.caption
+          a.category__anchor(href=`#${catalog.kids.group_6.id}`)=catalog.kids.group_6.caption
+        .table-scroll
+          table.table
+            tr.table__caption
+              td.table__name Наименование продукции
+              td.table__age Срок прикорма, месяцев
+              td.table__term Срок годности
+              td.table__amount Кол.-во шт. в уп 
+            +kids-group(catalog.kids.group_1)
+            +kids-group(catalog.kids.group_2)
+            +kids-group(catalog.kids.group_3)
+            +kids-group(catalog.kids.group_4)
+            +kids-group(catalog.kids.group_5)
+            +kids-group(catalog.kids.group_6)

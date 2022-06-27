@@ -1,11 +1,15 @@
-.contacts
+.contacts.page
   .container
-    .contacts__inner
-      .contacts__descr
-        h2.contacts__title.title Контакты
-        .contacts__link(data-style='name') ООО «Импорт-Гарант»
-        a.contacts__link(href='tel:88002013105' data-style='phone') 8 (800) 201 31 05
-        a.contacts__link(href='mailto:info@import-garant.com' data-style='mail-black') info@import-garant.com
+    .page__inner
+      .page__descr
+        h2.page__title.title Контакты
+        ul.contacts__list
+          li.contacts__item
+            span.contacts__link(data-style='name') ООО «Импорт-Гарант»
+          li.contacts__item
+            a.contacts__link(href='tel:88002013105' data-style='phone') 8 (800) 201 31 05
+          li.contacts__item
+            a.contacts__link(href='mailto:info@import-garant.com' data-style='mail-black') info@import-garant.com
         .contacts__requisites
           strong Реквизиты:
           p Общество с ограниченной ответственностью «Импорт-Гарант»
@@ -13,5 +17,5 @@
           p ИНН 5040060171
           p КПП 526301001
           p ОГРН 1155040000499
-      .contacts__img
+      .page__img
         img(src="images/contacts.jpg" alt="contacts Company")
