@@ -793,6 +793,10 @@ textarea.error {
     margin-bottom: 45px;
     margin-top: 20px;
     @extend %lobster;
+
+    &.modal {
+      text-align: center;
+    }
   }
 
   &__input {
@@ -807,6 +811,12 @@ textarea.error {
     font-size: 16px;
     line-height: 18px;
     color: $black;
+
+    &.modal {
+      width: 100%;
+      background: #DADADA;
+      margin-bottom: 15px;
+    }
 
     &::placeholder {
       font-weight: 500;
@@ -845,6 +855,13 @@ textarea.error {
     background-color: $orange;
     border-radius: 22px;
     margin-right: 35px;
+
+    &.modal {
+      margin: 0 auto;
+      max-width: 200px;
+      width: 100%;
+      display: block;
+    }
   }
 
   &__agreement {
@@ -856,6 +873,12 @@ textarea.error {
     font-weight: 500;
     font-size: 15px;
     max-width: 430px;
+
+    &.modal {
+      max-width: 100%;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
 
     a {
       text-decoration: underline;
