@@ -811,11 +811,17 @@ textarea.error {
     font-size: 16px;
     line-height: 18px;
     color: $black;
+    border: 2px solid transparent;
+    transition: border-color .2s ease-in-out;
 
     &.modal {
       width: 100%;
       background: #DADADA;
       margin-bottom: 15px;
+    }
+
+    .error {
+      border-color: rgb(250, 45, 45);
     }
 
     &::placeholder {
@@ -858,10 +864,24 @@ textarea.error {
 
     &.modal {
       margin: 0 auto;
-      max-width: 200px;
-      width: 100%;
+      width: max-content;
       display: block;
+      color: $white;
+      padding: 14px 50px;
     }
+
+    &.disabled {
+      background-color: $gray;
+      pointer-events: none;
+    }
+  }
+
+  &__notice {
+    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    text-align: center;
   }
 
   &__agreement {
@@ -884,6 +904,14 @@ textarea.error {
       text-decoration: underline;
     }
   }
+}
+
+[data-graph-target='first'] {
+  z-index: 1;
+}
+
+[data-graph-target='notice'] {
+  z-index: 10;
 }
 
 .aside {

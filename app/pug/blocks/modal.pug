@@ -1,13 +1,9 @@
-<div class="graph-modal">
-  <div class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="first">
-    <button class="btn-reset graph-modal__close js-modal-close" aria-label="Закрыть модальное окно"></button>
-    <div class="graph-modal__content">
-      form.form
-        div.form__title.modal Обратная связь
-        input.form__input.modal(placeholder='Имя')
-        input.form__input.modal(placeholder='Телефон')
-        .form__text.modal Отправляя сообщение, вы соглашаетесь на обработку персональных данных
-        button.form__btn.modal отправить
-    </div>
-  </div>
-</div>
+.graph-modal__container(role="dialog" aria-modal="true" data-graph-target="first")
+  button.btn-reset.graph-modal__close.js-modal-close(aria-label="Закрыть модальное окно")
+  .graph-modal__content
+    form.form(id='modal-form')
+      div.form__title.modal Обратная связь
+      input.form__input.modal(placeholder='Имя' name='name')
+      input.form__input.modal.js-input(placeholder='Телефон' name='phone')
+      .form__text.modal Отправляя сообщение, вы соглашаетесь на обработку персональных данных
+      button.form__btn.modal.js-btn Отправить
