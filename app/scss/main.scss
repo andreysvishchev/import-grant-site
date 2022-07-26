@@ -1086,6 +1086,14 @@ textarea.error {
   }
 }
 
+[data-style='conservation'] {
+  &::before {
+    background-image: url('../images/conservation.svg');
+    width: 40px;
+    height: 40px;
+  }
+}
+
 
 .table-scroll {
   overflow-x: auto;

@@ -7,7 +7,7 @@ import Swiper, {
   Autoplay
 } from 'swiper';
 
-const modal = new GraphModal();
+const modals = new GraphModal();
 
 const swiper = new Swiper('.slider', {
   speed: 600,
@@ -90,69 +90,92 @@ workemailList.forEach((item) => {
   return true;
 })();
 
-function closeModal() {
-  const modalContainer = document.querySelector('.graph-modal')
-  const modals = document.querySelectorAll('.graph-modal__container')
-  modalContainer.classList.remove('is-open')
-  modals.forEach(el => {
-    el.classList.remove('animate-open');
-    el.classList.remove('graph-modal-open');
-  })
-}
 
 
-const modalForm = document.getElementById('modal-form')
-const closeMidalBtn = document.querySelector('.js-close')
-closeMidalBtn.addEventListener('click', closeModal)
+const modalForm = document.querySelectorAll('.js-form')
+const closeModalBtn = document.querySelector('.js-close')
+const formAllInputs = document.querySelectorAll('.form__input, .form__textarea')
+closeModalBtn.addEventListener('click', modals.close.bind(modals))
 
-modalForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const thisForm = event.target;
-  const formData = new FormData(thisForm);
-  const buttonSubmit = thisForm.querySelector('.js-btn');
-  const buttonSubmitText = buttonSubmit.textContent
-  buttonSubmit.setAttribute('disabled', 'true');
-  buttonSubmit.classList.add('disabled')
-  buttonSubmit.textContent = 'идет отправка...';
+modalForm.forEach(el => {
+  el.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const thisForm = event.target;
+    const formData = new FormData(thisForm);
+    const buttonSubmit = thisForm.querySelector('.js-btn');
+    const buttonSubmitText = buttonSubmit.textContent
+    buttonSubmit.setAttribute('disabled', 'true');
+    buttonSubmit.classList.add('disabled')
+    buttonSubmit.textContent = 'идет отправка...';
 
-  fetch('/obrabotchik-formy', {
-      method: 'POST',
-      body: formData,
-    })
-    .then((response) => response.json())
-    .then((result) => {
-      const inputName = thisForm.querySelector('input[name="name"]');
-      const inputPhone = thisForm.querySelector('input[name="phone"]');
-      if (result.status == "success") {
-        closeModal()
-        new GraphModal().open('notice');
+    fetch('/obrabotchik-formy', {
+        method: 'POST',
+        body: formData,
+      })
+      .then((response) => response.json())
+      .then((result) => {
+        const inputName = thisForm.querySelector('input[name="name"]');
+        const inputPhone = thisForm.querySelector('input[name="phone"]');
+        const inputEmail = thisForm.querySelector('input[name="email"]');
+        const inputMessage = thisForm.querySelector('textarea[name="message"]');
+        if (result.status == "success") {
+          modals.close()
+          modals.open('notice');
+          const modal = document.querySelector(`[data-graph-target="notice"]`)
+          const notice = modal.querySelector('.form__notice')
+          notice.textContent = 'Сообщение успешно отправлено!'
+          if (inputName) {
+            inputName.value = '';
+          }
+          if (inputPhone) {
+            inputPhone.value = '';
+          }
+          if (inputEmail) {
+            inputEmail.value = '';
+          }
+          if (inputMessage) {
+            inputMessage.value = '';
+          }
+        } else {
+          if (result.name) {
+            inputName.classList.add('error');
+            inputName.setAttribute('title', result.name.trim());
+          }
+          if (result.phone) {
+            inputPhone.classList.add('error');
+            inputPhone.setAttribute('title', result.phone.trim());
+          }
+          if (result.email) {
+            inputPhone.classList.add('error');
+            inputPhone.setAttribute('title', result.email.trim());
+          }
+          if (result.message) {
+            inputMessage.setAttribute('title', result.message.trim());
+          }
+        }
+        buttonSubmit.removeAttribute('disabled');
+        buttonSubmit.classList.remove('disabled')
+        buttonSubmit.textContent = buttonSubmitText;
+      }).catch((error) => {
+        modals.close()
+        modals.open('notice');
         const modal = document.querySelector(`[data-graph-target="notice"]`)
         const notice = modal.querySelector('.form__notice')
-        notice.textContent = 'Сообщение успешно отправлено!'
-        inputName.value = '';
-        inputPhone.value = '';
-      } else {
-        if (result.name) {
-          inputName.classList.add('error');
-          inputName.setAttribute('title', result.name.trim());
-        }
-        if (result.phone) {
-          inputPhone.classList.add('error');
-          inputPhone.setAttribute('title', result.phone.trim());
-        }
-      }
-      buttonSubmit.removeAttribute('disabled');
-      buttonSubmit.classList.remove('disabled')
-      buttonSubmit.textContent = buttonSubmitText;
-    }).catch((error) => {
-      closeModal()
-      new GraphModal().open('notice');
-      const modal = document.querySelector(`[data-graph-target="notice"]`)
-      const notice = modal.querySelector('.form__notice')
-      notice.textContent = 'При отправке произошла ошибка, попробуйте еще раз'
+        notice.textContent = 'При отправке произошла ошибка, попробуйте еще раз'
+        buttonSubmit.removeAttribute('disabled');
+        buttonSubmit.classList.remove('disabled')
+        buttonSubmit.textContent = buttonSubmitText;
+      });
+  })
+})
 
-      buttonSubmit.removeAttribute('disabled');
-      buttonSubmit.classList.remove('disabled')
-      buttonSubmit.textContent = buttonSubmitText;
-    });
+formAllInputs.forEach((item) => {
+  const removeErrorClass = (event) => {
+    if (!event.target.classList.contains('error')) {
+      return false;
+    }
+    event.target.classList.remove('error');
+  };
+  item.addEventListener('input', removeErrorClass);
+  item.addEventListener('change', removeErrorClass);
 });

@@ -8,7 +8,7 @@
   - "./app/scripts/" - папка скриптов
 */
 // Продакшен: "./dist/"
-/*	
+/*
   - "./dist/" - корень сайта с html и папками
   - "./dist/fonts/" - папка шрифтов файлов проекта
   - "./dist/styles/" - папка с минифицированными стилями
@@ -17,7 +17,14 @@
 */
 
 import pkg from 'gulp'
-const { gulp, src, dest, parallel, series, watch: gulpWatch } = pkg
+const {
+  gulp,
+  src,
+  dest,
+  parallel,
+  series,
+  watch: gulpWatch
+} = pkg
 
 import browserSync from 'browser-sync'
 import bssi from 'browsersync-ssi'
@@ -33,22 +40,32 @@ const sass = gulpSass(dartSass)
 import postCss from 'gulp-postcss'
 import cssnano from 'cssnano'
 import autoprefixer from 'autoprefixer'
-import imagemin, { gifsicle, mozjpeg, optipng, svgo } from 'gulp-imagemin'
+import imagemin, {
+  gifsicle,
+  mozjpeg,
+  optipng,
+  svgo
+} from 'gulp-imagemin'
 import changed from 'gulp-changed'
 import concat from 'gulp-concat'
 import del from 'del'
 
 const pathCurrent = process.cwd();
-const pathModx = `${pathCurrent}.local/`;
+const pathModx = `C:/OpenServer/domains/import-garant.local/`;
 const pathModxTemplate = `${pathModx}assets/template/`;
 
 
 function browsersync() {
   browserSync.init({
-    server: {
-      baseDir: './dist/',
-      middleware: bssi({ baseDir: './dist/', ext: '.html' })
-    },
+    // server: {
+    //   baseDir: './dist/',
+    //   middleware: bssi({
+    //     baseDir: './dist/',
+    //     ext: '.html'
+    //   })
+    // },
+    proxy: "import-garant.local",
+    open: "external",
     // ghostMode: { clicks: false },
     notify: false,
     online: true,
@@ -77,7 +94,7 @@ function styles() {
     }))
     .pipe(postCss([
       autoprefixer({
-        grid: 'autoplace',
+        grid: true,
         overrideBrowserslist: ['last 3 versions'],
         cascade: false
       }),
@@ -85,7 +102,13 @@ function styles() {
     .pipe(dest('./dist/styles/'))
     .pipe(dest(`${pathModxTemplate}styles/`))
     .pipe(postCss([
-      cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
+      cssnano({
+        preset: ['default', {
+          discardComments: {
+            removeAll: true
+          }
+        }]
+      })
     ]))
     .pipe(concat('main.min.css'))
     .pipe(dest('./dist/styles/'))
@@ -97,31 +120,35 @@ function scripts() {
   return src(['app/scripts/*.js'])
     .pipe(named())
     .pipe(webpackStream({
-      mode: 'production',
-      performance: { hints: false },
+      mode: 'development',
+      performance: {
+        hints: false
+      },
       // plugins: [
       //   new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery' }), // jQuery (npm i jquery)
       // ],
       module: {
-        rules: [
-          {
-            test: /\.m?js$/,
-            exclude: /(node_modules)/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env'],
-                plugins: ['babel-plugin-root-import']
-              }
+        rules: [{
+          test: /\.m?js$/,
+          exclude: /(node_modules)/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: ['babel-plugin-root-import']
             }
           }
-        ]
+        }]
       },
       optimization: {
         minimize: true,
         minimizer: [
           new TerserPlugin({
-            terserOptions: { format: { comments: false } },
+            terserOptions: {
+              format: {
+                comments: false
+              }
+            },
             extractComments: false
           })
         ],
@@ -143,15 +170,16 @@ function images() {
   return src(['app/images/**/*'])
     .pipe(changed('./dist/images/'))
     .pipe(imagemin([
-      gifsicle({ interlaced: true }),
+      gifsicle({
+        interlaced: true
+      }),
       mozjpeg({
         progressive: true,
         quality: 80
       }),
       optipng(),
       svgo({
-        plugins: [
-          {
+        plugins: [{
             name: 'removeViewBox',
             active: true
           },
@@ -177,21 +205,38 @@ function fonts() {
 }
 
 async function cleandist() {
-  del('./dist/**/*', { force: true })
+  del('./dist/**/*', {
+    force: true
+  })
 }
 
 function startwatch() {
-  gulpWatch(['./app/pug/**/*.pug'], { usePolling: true }, buildPug)
-  gulpWatch(['./app/scss/**/*.scss'], { usePolling: true }, styles)
-  gulpWatch(['./app/scripts/**/*.js'], { usePolling: true }, scripts)
-  gulpWatch(['./app/images/**/*'], { usePolling: true }, images)
-  gulpWatch(['./app/fonts/**/*'], { usePolling: true }, fonts)
-  gulpWatch(['./dist/**/*.*'], { usePolling: true }).on('change', browserSync.reload)
+  gulpWatch(['./app/pug/**/*.pug'], {
+    usePolling: true
+  }, buildPug)
+  gulpWatch(['./app/scss/**/*.scss'], {
+    usePolling: true
+  }, styles)
+  gulpWatch(['./app/scripts/**/*.js'], {
+    usePolling: true
+  }, scripts)
+  gulpWatch(['./app/images/**/*'], {
+    usePolling: true
+  }, images)
+  gulpWatch(['./app/fonts/**/*'], {
+    usePolling: true
+  }, fonts)
+  gulpWatch(['./dist/**/*.*'], {
+    usePolling: true
+  }).on('change', browserSync.reload)
 }
 
 const build = series(cleandist, parallel(images, scripts, buildPug, styles, fonts))
 const watch = series(parallel(images, scripts, buildPug, styles, fonts), parallel(browsersync, startwatch))
 
 
-export { build, watch }
+export {
+  build,
+  watch
+}
 export default watch;

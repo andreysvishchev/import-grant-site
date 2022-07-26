@@ -10,3 +10,34 @@ block content
       .container
         .category__top
           .category__caption.title=pageTitle
+          .category__anchors
+            a.category__anchor(href=`#${catalog.conservation.group_2.id}`)=catalog.conservation.group_2.caption
+            a.category__anchor(href=`#${catalog.conservation.group_3.id}`)=catalog.conservation.group_3.caption
+            a.category__anchor(href=`#${catalog.conservation.group_4.id}`)=catalog.conservation.group_4.caption
+            a.category__anchor(href=`#${catalog.conservation.group_5.id}`)=catalog.conservation.group_5.caption
+            a.category__anchor(href=`#${catalog.conservation.group_6.id}`)=catalog.conservation.group_6.caption
+            a.category__anchor(href=`#${catalog.conservation.group_7.id}`)=catalog.conservation.group_7.caption
+            a.category__anchor(href=`#${catalog.conservation.group_8.id}`)=catalog.conservation.group_8.caption
+            a.category__anchor(href=`#${catalog.conservation.group_9.id}`)=catalog.conservation.group_9.caption
+            a.category__anchor(href=`#${catalog.conservation.group_10.id}`)=catalog.conservation.group_10.caption
+            a.category__anchor(href=`#${catalog.conservation.group_11.id}`)=catalog.conservation.group_11.caption
+            a.category__anchor(href=`#${catalog.conservation.group_12.id}`)=catalog.conservation.group_12.caption
+            a.category__anchor(href=`#${catalog.conservation.group_13.id}`)=catalog.conservation.group_13.caption
+          .table-scroll
+            table.table
+              tr.table__caption
+                td.table__name Наименование продукции
+                td.table__term Срок годности
+                td.table__amount Кол -во шт. в уп.
+              +conservation-group(catalog.conservation.group_2)
+              +conservation-group(catalog.conservation.group_3)
+              +conservation-group(catalog.conservation.group_4)
+              +conservation-group(catalog.conservation.group_5)
+              +conservation-group(catalog.conservation.group_6)
+              +conservation-group(catalog.conservation.group_7)
+              +conservation-group(catalog.conservation.group_8)
+              +conservation-group(catalog.conservation.group_9)
+              +conservation-group(catalog.conservation.group_10)
+              +conservation-group(catalog.conservation.group_11)
+              +conservation-group(catalog.conservation.group_12)
+              +conservation-group(catalog.conservation.group_13)

@@ -1,0 +1,79 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "Кондитерские изделия"
+block content
+  include blocks/aside
+  .inner
+    include blocks/crumbs
+    .category
+      .container
+        .category__top
+          .category__caption.title=pageTitle
+        .category__anchors
+          a.category__anchor(href=`#${catalog.confectionery.group_1.id}`)=catalog.confectionery.group_1.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_2.id}`)=catalog.confectionery.group_2.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_3.id}`)=catalog.confectionery.group_3.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_4.id}`)=catalog.confectionery.group_4.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_5.id}`)=catalog.confectionery.group_5.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_6.id}`)=catalog.confectionery.group_6.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_7.id}`)=catalog.confectionery.group_7.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_8.id}`)=catalog.confectionery.group_8.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_9.id}`)=catalog.confectionery.group_9.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_10.id}`)=catalog.confectionery.group_10.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_11.id}`)=catalog.confectionery.group_11.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_12.id}`)=catalog.confectionery.group_12.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_13.id}`)=catalog.confectionery.group_13.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_14.id}`)=catalog.confectionery.group_14.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_15.id}`)=catalog.confectionery.group_15.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_16.id}`)=catalog.confectionery.group_16.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_17.id}`)=catalog.confectionery.group_17.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_18.id}`)=catalog.confectionery.group_18.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_19.id}`)=catalog.confectionery.group_19.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_20.id}`)=catalog.confectionery.group_20.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_21.id}`)=catalog.confectionery.group_21.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_22.id}`)=catalog.confectionery.group_22.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_23.id}`)=catalog.confectionery.group_23.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_24.id}`)=catalog.confectionery.group_24.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_25.id}`)=catalog.confectionery.group_25.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_26.id}`)=catalog.confectionery.group_26.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_27.id}`)=catalog.confectionery.group_27.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_28.id}`)=catalog.confectionery.group_28.caption
+          a.category__anchor(href=`#${catalog.confectionery.group_29.id}`)=catalog.confectionery.group_29.caption
+
+        .table-scroll
+          table.table
+            tr.table__caption
+              td.table__name Наименование продукции
+              td.table__amount Ед. движ.
+              td.table__weight Вес коробки, кг/шт
+              td.table__term Срок хранения, мес.
+            +confectionery-group(catalog.confectionery.group_1)
+            +confectionery-group(catalog.confectionery.group_2)
+            +confectionery-group(catalog.confectionery.group_3)
+            +confectionery-group(catalog.confectionery.group_4)
+            +confectionery-group(catalog.confectionery.group_5)
+            +confectionery-group(catalog.confectionery.group_6)
+            +confectionery-group(catalog.confectionery.group_7)
+            +confectionery-group(catalog.confectionery.group_8)
+            +confectionery-group(catalog.confectionery.group_9)
+            +confectionery-group(catalog.confectionery.group_10)
+            +confectionery-group(catalog.confectionery.group_11)
+            +confectionery-group(catalog.confectionery.group_12)
+            +confectionery-group(catalog.confectionery.group_13)
+            +confectionery-group(catalog.confectionery.group_14)
+            +confectionery-group(catalog.confectionery.group_15)
+            +confectionery-group(catalog.confectionery.group_16)
+            +confectionery-group(catalog.confectionery.group_17)
+            +confectionery-group(catalog.confectionery.group_18)
+            +confectionery-group(catalog.confectionery.group_19)
+            +confectionery-group(catalog.confectionery.group_20)
+            +confectionery-group(catalog.confectionery.group_21)
+            +confectionery-group(catalog.confectionery.group_22)
+            +confectionery-group(catalog.confectionery.group_23)
+            +confectionery-group(catalog.confectionery.group_24)
+            +confectionery-group(catalog.confectionery.group_25)
+            +confectionery-group(catalog.confectionery.group_26)
+            +confectionery-group(catalog.confectionery.group_27)
+            +confectionery-group(catalog.confectionery.group_28)
+            +confectionery-group(catalog.confectionery.group_29)

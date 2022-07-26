@@ -1,6 +1,6 @@
 ul.menu__list
   each item, index in menu
-    li(class=item.title==pageTitle?"active menu__item":"menu__item")(data-menu=index==1? 'sub-item': null)
+    li(class=item.title==pageTitle?"active menu__item":"menu__item" data-menu=index==1? 'sub-item': null)
       if item.submenu
         a(href=item.link)=item.title
         button.sub-btn(data-menu='sub-btn')
