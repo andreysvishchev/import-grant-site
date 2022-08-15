@@ -179,3 +179,21 @@ formAllInputs.forEach((item) => {
   item.addEventListener('input', removeErrorClass);
   item.addEventListener('change', removeErrorClass);
 });
+
+const categoryBtn = document.querySelector('.category__btn')
+const categoryList = document.querySelector('.category__anchors-list')
+const categoryAnchor = document.querySelectorAll('.category__anchor')
+
+if (categoryBtn) {
+  categoryBtn.addEventListener('click', () => {
+    categoryList.classList.toggle('active')
+  })
+}
+
+if (categoryAnchor) {
+  categoryAnchor.forEach(el => {
+    el.addEventListener('click', () => {
+      categoryList.classList.remove('active')
+    })
+  })
+}

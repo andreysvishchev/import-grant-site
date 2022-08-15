@@ -51,21 +51,22 @@ import concat from 'gulp-concat'
 import del from 'del'
 
 const pathCurrent = process.cwd();
-const pathModx = `C:/OpenServer/domains/import-garant.local/`;
+// const pathModx = `C:/OpenServer/domains/import-garant.local/`;
+const pathModx = `${pathCurrent}.local/`;
 const pathModxTemplate = `${pathModx}assets/template/`;
 
 
 function browsersync() {
   browserSync.init({
-    // server: {
-    //   baseDir: './dist/',
-    //   middleware: bssi({
-    //     baseDir: './dist/',
-    //     ext: '.html'
-    //   })
-    // },
-    proxy: "import-garant.local",
-    open: "external",
+    server: {
+      baseDir: './dist/',
+      middleware: bssi({
+        baseDir: './dist/',
+        ext: '.html'
+      })
+    },
+    // proxy: "import-garant.local",
+    // open: "external",
     // ghostMode: { clicks: false },
     notify: false,
     online: true,

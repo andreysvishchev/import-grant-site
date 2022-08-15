@@ -10,13 +10,16 @@ block content
       .container
         .category__top
           .category__caption.title=pageTitle
+          a.category__price(href="") Скачать прайс-лист.pdf
         .category__anchors
-          a.category__anchor(href=`#${catalog.kids.group_1.id}`)=catalog.kids.group_1.caption
-          a.category__anchor(href=`#${catalog.kids.group_2.id}`)=catalog.kids.group_2.caption
-          a.category__anchor(href=`#${catalog.kids.group_3.id}`)=catalog.kids.group_3.caption
-          a.category__anchor(href=`#${catalog.kids.group_4.id}`)=catalog.kids.group_4.caption
-          a.category__anchor(href=`#${catalog.kids.group_5.id}`)=catalog.kids.group_5.caption
-          a.category__anchor(href=`#${catalog.kids.group_6.id}`)=catalog.kids.group_6.caption
+          .category__btn Показать категории
+          .category__anchors-list
+            a.category__anchor(href=`#${catalog.kids.group_1.id}`)=catalog.kids.group_1.caption
+            a.category__anchor(href=`#${catalog.kids.group_2.id}`)=catalog.kids.group_2.caption
+            a.category__anchor(href=`#${catalog.kids.group_3.id}`)=catalog.kids.group_3.caption
+            a.category__anchor(href=`#${catalog.kids.group_4.id}`)=catalog.kids.group_4.caption
+            a.category__anchor(href=`#${catalog.kids.group_5.id}`)=catalog.kids.group_5.caption
+            a.category__anchor(href=`#${catalog.kids.group_6.id}`)=catalog.kids.group_6.caption
         .table-scroll
           table.table
             tr.table__caption

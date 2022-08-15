@@ -9,14 +9,18 @@ block content
     include blocks/crumbs
     .category
       .container
-        .category__caption.title=pageTitle
+        .category__top
+          .category__caption.title=pageTitle
+          a.category__price(href="") Скачать прайс-лист.pdf
         .category__anchors
-          a.category__anchor(href=`#${catalog.meet.group_1.id}`)=catalog.meet.group_1.caption
-          a.category__anchor(href=`#${catalog.meet.group_2.id}`)=catalog.meet.group_2.caption
-          a.category__anchor(href=`#${catalog.meet.group_3.id}`)=catalog.meet.group_3.caption
-          a.category__anchor(href=`#${catalog.meet.group_4.id}`)=catalog.meet.group_4.caption
-          a.category__anchor(href=`#${catalog.meet.group_5.id}`)=catalog.meet.group_5.caption
-          a.category__anchor(href=`#${catalog.meet.group_6.id}`)=catalog.meet.group_6.caption
+          .category__btn Показать категории
+          .category__anchors-list
+            a.category__anchor(href=`#${catalog.meet.group_1.id}`)=catalog.meet.group_1.caption
+            a.category__anchor(href=`#${catalog.meet.group_2.id}`)=catalog.meet.group_2.caption
+            a.category__anchor(href=`#${catalog.meet.group_3.id}`)=catalog.meet.group_3.caption
+            a.category__anchor(href=`#${catalog.meet.group_4.id}`)=catalog.meet.group_4.caption
+            a.category__anchor(href=`#${catalog.meet.group_5.id}`)=catalog.meet.group_5.caption
+            a.category__anchor(href=`#${catalog.meet.group_6.id}`)=catalog.meet.group_6.caption
         .table-scroll
           table.table
             tr.table__caption

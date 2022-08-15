@@ -10,10 +10,12 @@ block content
       .container
         .category__top
           .category__caption.title=pageTitle
+          a.category__price(href="") Скачать прайс-лист.pdf
         .category__anchors
-          a.category__anchor(href=`#${catalog.drinks.group_1.id}`)=catalog.drinks.group_1.caption
-          a.category__anchor(href=`#${catalog.drinks.group_2.id}`)=catalog.drinks.group_2.caption
-
+          .category__btn Показать категории
+          .category__anchors-list
+            a.category__anchor(href=`#${catalog.drinks.group_1.id}`)=catalog.drinks.group_1.caption
+            a.category__anchor(href=`#${catalog.drinks.group_2.id}`)=catalog.drinks.group_2.caption
         .table-scroll
           table.table
             tr.table__caption

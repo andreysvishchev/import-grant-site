@@ -393,13 +393,27 @@ textarea.error {
 .category {
   padding: 0 15px 100px 15px;
 
+  &__top {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 67px 0 40px;
+  }
+
+  &__price {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 12px;
+  }
+
   &__title {
     text-align: center;
     margin: 0 0 40px 0;
   }
 
   &__caption {
-    margin: 67px 0 40px;
+    margin-right: 60px;
   }
 
   &__list {
@@ -443,18 +457,7 @@ textarea.error {
     }
   }
 
-  &__anchors {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 40px;
-  }
 
-  &__anchor {
-    padding: 10px 16px;
-    color: $dark-green;
-    border: 1px solid $dark-green;
-  }
 
   &__img {
     display: block;
@@ -472,6 +475,69 @@ textarea.error {
     color: $black;
     @extend %lobster;
     text-align: center;
+  }
+
+  &__btn {
+    background-color: transparent;
+    display: inline-block;
+    border: 2px solid $dark-green;
+    color: $black;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  &__anchors {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  &__anchors-list {
+    margin-top: 5px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    border: 1px solid $dark-green;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__anchor {
+    padding: 7px 10px;
+    font-weight: 500;
+    transition: background-color .2s ease-in-out;
+
+    &:hover {
+      background-color: $orange;
+    }
+  }
+
+  &__price {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: underline;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 24px;
+      background-image: url('../images/price.svg');
+      margin-right: 14px;
+    }
   }
 }
 
@@ -1094,15 +1160,27 @@ textarea.error {
   }
 }
 
+[data-style='confectionery'] {
+  &::before {
+    width: 53px;
+    height: 41px;
+    background-image: url('../images/Frame.svg');
+  }
+
+}
+
+
 
 .table-scroll {
-  overflow-x: auto;
   width: 100%;
+  overflow-x: auto;
 }
 
 .table {
   border-collapse: collapse;
   margin-bottom: 40px;
+
+
 
   &__caption {
     background-color: $light-green;
